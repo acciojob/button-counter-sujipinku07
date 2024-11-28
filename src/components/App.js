@@ -1,13 +1,18 @@
 
-import React from "react";
-import './../styles/App.css';
-
-const App = () => {
+import React, { useState } from "react";
+import "./../styles/App.css";
+ 
+export default function App() {
+  const [count, setCount] = useState(0);
+  function handleClick() {
+    setCount((prevCount) => {
+      return prevCount + 1;
+    });
+  }
   return (
-    <div>
-        {/* Do not remove the main div */}
+    <div className="App">
+      <p>Button clicked {count} times</p>
+      <button onClick={handleClick}>Click me</button>
     </div>
-  )
+  );
 }
-
-export default App
